@@ -105,11 +105,14 @@ shareGold(200);
 console.log(party);
 
 // Prompt 9: Sarah is tired of taking care of a jellyfish. 
-
-
 // Subtract some gold from her and change her companion to a bear.
-party[2].gold -= 40;
-
+party.forEach((member) => {
+    if(member.name == "Sarah"){
+        member.gold-= 20
+        member.companion.type = "bear"
+    }
+});
+console.log(party);
 
 // Prompt 10: Timothy’s sword has gotten old. Change it to “Rusty Sword"
 
@@ -121,6 +124,18 @@ console.log(party);
 // true while the other members have leader: false.
 
 
+function setLeader(leader){
+    
+    party.forEach((member) => {
+        if(member.name == leader){
+            member.leader = true;
+        }else{
+            member.leader = false;
+        }
+    })
 
+}
+setLeader("Beginner")
+console.log(party)
 
 
